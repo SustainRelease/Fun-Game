@@ -1,39 +1,72 @@
-var div1 = document.getElementById("div1");
-var div2 = document.getElementById("div2");
+const textDiv = document.getElementById("textDiv");
+const UIDiv = document.getElementById("UIDiv");
+const hpDiv = document.getElementById("hpDiv");
+var nUIElems = 0;
+var hp = 100;
 
-function setDiv (htmlSet) {
-  div1.innerHTML = htmlSet;
-}
 function addDiv (htmlAdd) {
-  div1.innerHTML += htmlAdd;
+  textDiv.innerHTML += htmlAdd;
 }
 function clearDiv () {
-  div1.innerHTML = "";
+  textDiv.innerHTML = "";
 }
+function setHeader () {
+  let htmlTxt = "HP:  ";
+  for(let i = 0; i < hp; i++) {
+    htmlTxt += "|";
+  }
+  hpDiv.innerHTML = htmlTxt;
+}
+  
 
-function setButton1 (text, funCall) {
-  div2.innerHTML = '<button type="button" onclick="' + funCall.name + '();">' + text + '</button>';
+function addUI(type, buttonText, funCall) {
+  console.log(type.toLowerCase());
+  switch(type.toLowerCase()) {
+    case "button":
+      butID = "but"+nUIElems;
+      addUIHtml("<button id = '" + butID + "'>" + buttonText + "</button>");
+      let elem = document.getElementById(butID);
+      elem.addEventListener('click',funCall);
+      nUIElems++;
+      break;
+    case "textinput":
+      textID = "text"+nUIElems;
+      butID = "but"+nUIElems;
+      addUIHtml("<input type='text' id='" + textID + "'></input>" +
+                "<button id = '" + butID + "'>" + buttonText + "</button>");
+      let butElem = document.getElementById(butID);
+      let textElem = document.getElementById(textID);
+      butElem.addEventListener('click', () => {
+        funCall(textElem.value);
+      });
+      nUIElems++;
+      break;
+    default:
+      new error("Invalid UI element type");
+  }
 }
-function setButton2 (text, funCall) {
-  div2.innerHTML += '<button type="button" onclick="' + funCall.name + '();">' + text + '</button>';
+function addUIHtml (text) {
+  UIDiv.innerHTML += text;
 }
-function clearButtons () {
-  div2.innerHTML = "";
+function clearUI () {
+  UIDiv.innerHTML = "";
 }
 
 function clearPage () {
   clearDiv();
-  clearButtons();
+  clearUI();
+  setHeader();
 }
 
 die = function () {
+  hp = 0;
   clearPage();
-  setDiv("<h1>Your're dead!</h1>");
+  addDiv("<h2>You're dead!</h2>");
 };
 
 win = function () {
   clearPage();
-  setDiv("<h1>You win!</h1>");
+  addDiv("<h2>You win!</h2>");
 };
 
 robbie1();

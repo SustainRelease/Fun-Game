@@ -1,7 +1,7 @@
 var edward1 = function () {
   console.log("Welcome to edward1");
   clearPage();
-  setDiv("Edward's part of the game");
-  setButton1("Continue",dylan1);
+  addDiv("Edward's part of the game");
+  addUI("button","Continue",dylan1);
   return;
 }

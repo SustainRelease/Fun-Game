@@ -1,7 +1,7 @@
 var robbie1 = function () {
 console.log("Welcome to robbie1");
 clearPage();
-setDiv("<h1>Fun Game</h1>Hey so we are going to make a game and it will be fun.");
+addDiv("Hey so we are going to make a game and it will be fun.");
 addDiv("<h2>Intro</h2><h3>The Beginning</h3>");
 addDiv("In the year 2020 Alphabet's moonshoot division started work on a new project called Google Government, aimed at reducing the 	cost of producing and implementing government policy by outsourcing this work to Googles free cloud-based platform. The project was officially released to the public in 2022 and was met with much skepticism. However, after several years, many government spending cuts and a growing acceptance of artifical intellegence, this software began to become more and more widespread.");
 addDiv("<h3>The Matrix 2: Reloaded</h3>");
@@ -14,21 +14,26 @@ addDiv("<h3>Another paragraph</h3>");
 addDiv("In 2205 on the 100th anniversay of google's first android, the google-run UN announces a resolution to gradually reduce the human race into a docile and unintelligent race capable of performing small tasks and being farmed for energy. The announcement is met with unanimous support from all tiers of google-government. Small signs of descent begin to be felt from the remaining fleshy population.");
 addDiv("<h2>The Mission</h2>");
 addDiv("The year is 2207, you are T33X72, an elite google-android spy sent to find and destroy a small guerilla group in Frinka who have gained access to a cold-war era warhead and are planning an attack on the google headquaters in googlefornia.");
-setButton1("Continue",robbie2);
+addUI("button","continue",robbie2);
 return;
 }
 
 var robbie2 = function () {
   console.log("Welcome to robbie2");
   clearPage();
-  var guess = prompt("What is your name?");
+  addDiv("What is your name?");
+  addUI("textinput","Done",robbie3);
+}
+
+var robbie3 = function (guess) {
+  console.log("Welcome to robbie3");
+  clearPage();
   if (guess.toUpperCase() !== "T33X72") {
     die();
   } else {
     clearPage();
-    setDiv("Well aren't you a clever cookie!");
-    setButton1("Why yes, yes I am",laureen1);
+    addDiv("Well aren't you a clever cookie!");
+    addUI("button","Why yes, yes I am",laureen1);
   }
-  return;
 }
 
