@@ -4,23 +4,21 @@
 
   <title>The HTML5 Herald</title>
   <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="src/css/master.css">
 </head>
 
 <body>
-  <div>
-    <div></div>
-    <div><h1>Fun Game</h1></div>
-    <div id = "hpDiv"></div>
+
+  <div id='app'>
+      <div></div>
+      <div><h1>Fun Game</h1></div>
+      <div id='hud'>
+            <div id="status-bar"></div>
+      </div>
+      <div id='text-pane'></div>
+      <div id='control-panel'> </div>
   </div>
-  <div id="textDiv"></div>
-  <div id="UIDiv"></div>
-  <script src="src/RobbiePart.js"></script>
-  <script src="src/LaureenPart.js"></script>
-  <script src="src/WilliamPart.js"></script>
-  <script src="src/DylanPart.js"></script>
-  <script src="src/EdwardPart.js"></script>
-  <script src="src/MainScript.js"></script>
+
+  <script src="./main.js"></script>
 </body>
 </html>
