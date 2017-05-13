@@ -1,14 +1,26 @@
 
-const TextView = require('./view.js');
 
-const textDiv = new TextView("textDiv")
-const UIDiv = document.getElementById("UIDiv");
-const hpDiv = document.getElementById("hpDiv");
-var nUIElems = 0;
+App = require("./app.js");
 
-App = require("./app.js")
+let robbie = require("./parts/RobbiePart.js");
+let edward = require("./parts/EdwardPart.js");
+let laureen = require("./parts/LaureenPart.js");
+let william = require("./parts/WilliamPart.js");
+let dylan = require("./parts/DylanPart.js");
 
-let Robbie = require("./RobbiePart.js")
-let robbie1 = Robbie.robbie1
 
-robbie1();
+app = new App({
+    series:{
+        robbie:robbie,
+        laureen:laureen,
+        william:william,
+        edward:edward,
+        dylan:dylan
+    },
+    sequence:[
+        'robbie','laureen','william','dylan', 'edward'
+    ]
+
+});
+
+app.begin();
