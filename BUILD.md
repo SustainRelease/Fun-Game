@@ -31,5 +31,3 @@ or to have continuous building.
 
 
 This will build all our code starting from one entry point(src/MainScript.js) that uses other javascript modules.
-
-Module such as the Act module  like the module for __act__: that is _the functions that are modifying the DOM_

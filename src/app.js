@@ -92,7 +92,6 @@ class App{
             this.story.addTitle(scene.title)
         }
 
-
         for(let section of scene.sections){
             this.story.addSection(section);
         }
