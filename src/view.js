@@ -59,7 +59,7 @@ class ControlPanel extends ViewElement {
                 //raw input and go button
               let textID = "text"+this.nUIElems;
               let butID = "but"+this.nUIElems;
-              
+
               this.add("<input type='text' id='" + textID + "'></input>" +
                         "<button id = '" + butID + "'>" + control.text + "</button>");
               let butElem = document.getElementById(butID);
@@ -92,8 +92,8 @@ class TextPane extends ViewElement{
 
     addSection(section){
         if(section.title !== undefined){
-            this.add(`<h2> ${section.title} </h2>`);
-            this.add(`<h2> ${section.text} </h2>`);
+            this.add(`<h2>${section.title}</h2>`);
+            this.add(`<p>${section.text}</p>`);
         }
     }
 }
