@@ -11,7 +11,7 @@ class App{
 
         this.hud = new HUD(this.player);
         this.story = new View.TextPane();
-        this.control = new View.ControlPanel(this);
+        this.controlPanel = new View.ControlPanel(this);
         this.scenes = {}
 
         this.series = series;
@@ -36,7 +36,7 @@ class App{
 
     clearUI(){
         this.story.clear();
-        this.control.clear();
+        this.controlPanel.clear();
     }
 
     nextSeries(){
@@ -97,10 +97,29 @@ class App{
         }
 
         for(let control of scene.controls){
-            this.control.addControl(control);
+            if(this.validateControl(control)) {
+                this.controlPanel.addControl(control);
+            }
         }
 
         this.hud.update();
+    }
+
+    validateControl(control) {
+        if ('prereq' in control) {
+            let prereq = control.prereq;
+            if (prereq in player.capabilities) {
+                if ('prereqMin' in control) {
+                    return (player[prereq] > control.prereqMin);
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }       
     }
 
     reset(sceneID){

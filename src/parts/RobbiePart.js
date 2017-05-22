@@ -47,7 +47,7 @@ var robbie1 = {
             type:"button",
             text:"Continue",
             action:"progress",
-            argument:'robbie2'
+            argument:'robbie2',
         }
     ]
     //

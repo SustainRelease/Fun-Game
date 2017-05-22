@@ -2,7 +2,8 @@
 
 class Player {
     constructor(){
-        this.hp = 100
+        this.hp = 100;
+        this.capabilities = {};
     }
 
     die() {
@@ -12,6 +13,8 @@ class Player {
     reset(){
         this.hp = 100;
     }
+    
+    
 
 }
 
